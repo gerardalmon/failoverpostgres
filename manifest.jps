@@ -1,5 +1,5 @@
 type: update
-id: failover-postgres
+id: pgfailover
 logo: "https://raw.githubusercontent.com/gerardalmon/postgresrepication/master/images/postgres-70x70.png"
 description:
   text: "<span>A simple failover for Postgres Cluster</div>"

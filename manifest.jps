@@ -7,7 +7,9 @@ description:
 name: Postgres Failover
 targetNodes:
   nodeType:
-  - postgres
+  - postgres12
+  nodeGroup:
+  - sqldb
 baseUrl: https://raw.githubusercontent.com/gerardalmon/failoverpostgres/master
 onInstall: installfailoverscript
 onUninstall: uninstallfailoverscript

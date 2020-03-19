@@ -14,22 +14,22 @@ onUninstall: uninstallfailoverscript
 onBeforeDelete: removefiles
 actions:
   installfailoverscript:
-    - cmd [${targetNodes.nodeGroup}]:
+    cmd [${targetNodes.nodeGroup}]:
       - mkdir -p /bin/failover
       - echo "timedatectl  >> /tmp/pg.failover" > /bin/failover/failover.sh
       - chmod +x /bin/failover/failover.sh
     user: root
   uninstallfailoverscript:
-    - cmd [${targetNodes.nodeGroup}]:
+    cmd [${targetNodes.nodeGroup}]:
       - rm -f /bin/failover/failover.sh
       - rmdir /bin/failover/
     user: root  
-  removefiles
-    - cmd [${targetNodes.nodeGroup}]:
+  removefiles:
+    cmd [${targetNodes.nodeGroup}]:
       - rm -f /tmp/pg.failover
     user: root  
-  dofailover
-    - cmd [${targetNodes.nodeGroup}]:
+  dofailover:
+    cmd [${targetNodes.nodeGroup}]:
       - sh /bin/failover/failover.sh
     user: root  
 buttons:
